@@ -27,7 +27,8 @@
         <form action=".php" method="POST">
           <h6>Fórmula</h6>
           <div class="form-group">
-            <input class="form-control" placeholder="ROE=(Utilidad/Patrimonio)*100" autofocus type="text" name="variable">
+            <input class="form-control" placeholder="ROE=(Utilidad/Patrimonio)*100" autofocus type="text"
+              name="variable">
             <small class="form-text text-muted">Única fórmula implementada ROE</small>
             <input type="submit" class="btn btn-success btn-block mt-2" name="save_varible" value="Agregar">
           </div>
@@ -84,7 +85,7 @@
         <script type="text/javascript">
           Highcharts.chart('chart', {
             chart: {
-                zoomType: 'xy'
+              zoomType: 'xy'
             },
             title: {
               text: 'Ratio de Rentabilidad Financiera'
@@ -93,78 +94,84 @@
               text: 'ROE (Return on Equity)'
             },
             xAxis: [{
-                categories: [<?php echo join($categories, ',') ?>],
-                crosshair: true
+              categories: [ <?php echo join($categories, ',') ?> ],
+              crosshair: true
             }],
             yAxis: [{ // Primary yAxis
-                labels: {
-                    format: '{value}%',
-                    style: {
-                        color: Highcharts.getOptions().colors[1]
-                    }
-                },
-                title: {
-                    text: 'ROE',
-                    style: {
-                        color: Highcharts.getOptions().colors[1]
-                    }
+              labels: {
+                format: '{value}%',
+                style: {
+                  color: Highcharts.getOptions().colors[1]
                 }
+              },
+              title: {
+                text: 'ROE',
+                style: {
+                  color: Highcharts.getOptions().colors[1]
+                }
+              }
             }, { // Secondary yAxis
-                title: {
-                    text: 'ROE',
-                    style: {
-                        color: Highcharts.getOptions().colors[0]
-                    }
-                },
-                labels: {
-                    format: '{value}%',
-                    style: {
-                        color: Highcharts.getOptions().colors[0]
-                    }
-                },
-                opposite: true
+              title: {
+                text: 'ROE',
+                style: {
+                  color: Highcharts.getOptions().colors[0]
+                }
+              },
+              labels: {
+                format: '{value}%',
+                style: {
+                  color: Highcharts.getOptions().colors[0]
+                }
+              },
+              opposite: true
             }],
             tooltip: {
-                shared: true
+              shared: true
             },
             legend: {
-                layout: 'vertical',
-                align: 'left',
-                x: 120,
-                verticalAlign: 'top',
-                y: 100,
-                floating: true,
-                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255,255,255,0.25)'
+              layout: 'vertical',
+              align: 'left',
+              x: 120,
+              verticalAlign: 'top',
+              y: 100,
+              floating: true,
+              backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) ||
+                'rgba(255,255,255,0.25)'
             },
             series: [{
-                name: 'Real',
-                type: 'column',
-                yAxis: 1,
-                data: [<?php echo join($reales, ',') ?>],
-                tooltip: {
-                    valueSuffix: ' %'
-                }
+              name: 'Real',
+              type: 'column',
+              yAxis: 1,
+              data: [ <?php echo join($reales, ',') ?> ],
+              tooltip: {
+                valueSuffix: ' %'
+              }
 
             }, {
-                name: 'Meta',
-                type: 'spline',
-                data: [<?php echo join($metas, ',') ?>],
-                tooltip: {
-                    valueSuffix: ' %'
-                }
+              name: 'Meta',
+              type: 'spline',
+              data: [ <?php echo join($metas, ',') ?> ],
+              tooltip: {
+                valueSuffix: ' %'
+              }
             }]
-        });
+          });
         </script>
       </div>
     </div>
   </div>
 </div>
-<?php if(isset($_SESSION['message'])){ ?>
-  <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show m-3 fixed-bottom col-3" role="alert">
-    <?= $_SESSION['message'] ?>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-<?php session_unset(); } ?>
- <?php include('includes/footer.php') ?>
+<?php if (isset($_SESSION['message'])) {
+            ?>
+<div
+  class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show m-3 fixed-bottom col-3"
+  role="alert">
+  <?= $_SESSION['message'] ?>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<?php
+  session_unset();
+        }
+include('includes/footer.php');
