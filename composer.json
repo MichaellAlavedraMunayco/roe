@@ -1,0 +1,14 @@
+{
+    "name": "fmich/roe",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MichaellAlavedraMunayco",
+            "email": "f.michaell.a.m@gmail.com"
+        }
+    ],
+    "require": {
+        "mpdf/mpdf": "^8.0"
+    }
+}
