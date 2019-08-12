@@ -1,4 +1,4 @@
-# Inteligencia de Negocios
+# Balanced Scorecard
 Version 2
 ![alt text](https://github.com/MichaellAlavedraMunayco/roe/blob/master/screenshots/screenshot3.png)
 Version 1
